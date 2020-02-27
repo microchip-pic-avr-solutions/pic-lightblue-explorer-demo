@@ -1,7 +1,0 @@
-/build/
-/dist/
-/debug/
-/nbproject/private/ 
-/nbproject/*.mk
-/nbproject/*.bash
-/nbproject/*.properties 

@@ -25,7 +25,7 @@
 */
 
 #include "BMA253_accel.h"
-#include "drivers/i2c_simple_master.h"
+#include "../drivers/i2c_simple_master.h"
 
 /**
 \ingroup BMA253

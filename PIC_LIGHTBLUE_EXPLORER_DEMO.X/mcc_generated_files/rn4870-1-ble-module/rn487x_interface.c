@@ -84,17 +84,10 @@ static void RN487X_SetSystemMode(RN487X_SYSTEM_MODES_t mode);
 static void RN487X_MessageHandler(char* message);
 
 const iRN487X_FunctionPtrs_t RN487X = {
-#if defined (PIC_DEVICE)
     .Write = EUSART2_Write,
     .Read = EUSART2_Read,
     .TransmitDone = EUSART2_is_tx_done,
     .DataReady = EUSART2_is_rx_ready,
-#elif defined (AVR_DEVICE)
-    .Write = USART0_Write,
-    .Read = USART0_Read,
-    .TransmitDone = USART0_IsTxDone,
-    .DataReady = USART0_IsRxReady,
-#endif
     .IndicateRx = RN487X_IndicateRx,
     .Reset = RN487X_Reset,
     .SetSystemMode = RN487X_SetSystemMode,

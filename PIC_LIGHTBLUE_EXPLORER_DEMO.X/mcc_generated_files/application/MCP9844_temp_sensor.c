@@ -25,7 +25,7 @@
 */
 
 #include "MCP9844_temp_sensor.h"
-#include "drivers/i2c_simple_master.h"
+#include "../drivers/i2c_simple_master.h"
 
 /* MASK DEFINITIONS */
 

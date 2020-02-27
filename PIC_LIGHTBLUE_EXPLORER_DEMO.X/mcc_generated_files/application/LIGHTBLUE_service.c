@@ -30,11 +30,11 @@
 #include "LIGHTBLUE_service.h"
 
 // APP Dependencies
-#include "rn4870-1-ble-module/rn487x.h"
+#include "../rn4870-1-ble-module/rn487x.h"
 #include "BMA253_accel.h"
 #include "MCP9844_temp_sensor.h"
-#include "pin_manager.h"
-#include "drivers/uart.h"
+#include "../pin_manager.h"
+#include "../drivers/uart.h"
 
 /**
 \ingroup LIGHTBLUE
@@ -156,7 +156,6 @@
  \return void \n
 */
 #define NIBBLE_MASK                 (0x01)
-
 /**
  \ingroup LIGHTBLUE
 *! \struct PROTOCOL_PACKET_TYPES_t
@@ -240,6 +239,7 @@ This function is used to read PORT value read from pin connected to PUSH BUTTON 
  \retval Status 0 (OFF) | 1 (ON) \n
  */
 static uint8_t LIGHTBLUE_GetButtonValue(void);
+
 /**
  \ingroup LIGHTBLUE
  \brief  Private function used to request status of DATA LED from reading the PORT value. \n
@@ -248,6 +248,7 @@ This function is used to read PORT value from pin connected to LED masked agains
  \retval Status 0 (OFF) | 1 (ON) \n
  */
 static uint8_t LIGHTBLUE_GetDataLedValue(void);
+
 /**
  \ingroup LIGHTBLUE
  \brief  Private function used to request status of ERROR LED from local maintain variable. \n
@@ -271,7 +272,7 @@ This function is used to update the state of the ERROR LED which is controlled v
  * RN487X through the GPIO command on the PIC platform. On the AVR board this is MCU (LAT) controlled.
  \return void \n
  */
-static void LIGHTBLUE_UpdateErrorLed(void);
+static void LIGHTBLUE_UpdateErrorLed(void); 
 /**
  \ingroup LIGHTBLUE
  \brief  Private function used process requested actions from the Light Blue application \n
