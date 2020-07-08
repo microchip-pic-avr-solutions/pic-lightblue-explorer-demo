@@ -2,7 +2,6 @@
  * \file rn487x_interface.h
  * \brief This file provides and interface between the RN487X and the hardware.
  */
-
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. 
     
@@ -55,7 +54,7 @@ typedef struct
     // RN487x RX_IND pin control
     void (*IndicateRx)(bool);
     // RN487x Reset pin control
-    void (*Reset)(bool);
+    void (*ResetModule)(bool);
     // RN487x Mode pin set
     void (*SetSystemMode)(RN487X_SYSTEM_MODES_t);
     // Delay API
@@ -76,4 +75,3 @@ extern const iRN487X_FunctionPtrs_t RN487X;
 bool RN487X_IsConnected(void);
 
 #endif	/* RN487X_INTERFACE_H */
-

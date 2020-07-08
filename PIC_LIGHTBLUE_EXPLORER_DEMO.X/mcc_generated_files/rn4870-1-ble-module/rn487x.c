@@ -1,7 +1,6 @@
 /** \file rn487x.c
  *  \brief This file contains APIs to access features support by RN487X series devices.
  */
-
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. 
     
@@ -24,26 +23,25 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
-
-#include <stdio.h>
-#include "../mcc.h"
 #include "rn487x.h"
+#include "rn487x_interface.h"
+#include "../mcc.h"
 
 /**
  * \def STATUS_MESSAGE_DELIMITER
  * This macro provide a definition of the RN487X devices PRE/POST status message delimiter.
  */
-#define STATUS_MESSAGE_DELIMITER        '%'
+#define STATUS_MESSAGE_DELIMITER        ('%')
 
-uint8_t cmdBuf[64]; /**< Command TX Buffer */
+uint8_t cmdBuf[64];                                 /**< Command TX Buffer */
 
-const char * const rn487x_driver_version = "1.0.0"; /**<  Current RN487X Driver Version */
+const char * const rn487x_driver_version = "1.1.0"; /**<  Current RN487X Driver Version */
 
-static char *asyncBuffer; /**< Async Message Buffer */
-static uint8_t asyncBufferSize; /**< Size of the Async Message Buffer */
-static char *pHead; /**< Pointer to the Head of the Async Message Buffer */
-static uint8_t peek = 0; /**< Recieved Non-Status Message Data */
-static bool dataReady = false; /**< Flag which indicates whether Non-Status Message Data is ready */
+static char *asyncBuffer;                           /**< Async Message Buffer */
+static uint8_t asyncBufferSize;                     /**< Size of the Async Message Buffer */
+static char *pHead;                                 /**< Pointer to the Head of the Async Message Buffer */
+static uint8_t peek = 0;                            /**< Recieved Non-Status Message Data */
+static bool dataReady = false;                      /**< Flag which indicates whether Non-Status Message Data is ready */
 
 /**
  * \brief This function filters status messages from RN487X data.
@@ -57,13 +55,12 @@ bool RN487X_Init(void)
 {
     // Set Application Mode
     RN487X.SetSystemMode(APPLICATION_MODE);
-
     //Enter reset
-    RN487X.Reset(true);
+    RN487X.ResetModule(true);
     //Wait for Reset
     RN487X.DelayMs(RN487X_RESET_DELAY_TIME);
     //Exit reset
-    RN487X.Reset(false);
+    RN487X.ResetModule(false);
 
     //Wakeup
     RN487X.IndicateRx(true);

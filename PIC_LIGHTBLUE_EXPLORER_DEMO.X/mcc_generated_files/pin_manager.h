@@ -13,12 +13,12 @@
   @Description
     This header file provides APIs for driver for .
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.77
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.3
         Device            :  PIC16LF18456
         Driver Version    :  2.11
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.05 and above
-        MPLAB 	          :  MPLAB X 5.20	
+        Compiler          :  XC8 2.20 and above
+        MPLAB 	          :  MPLAB X 5.40	
 */
 
 /*
@@ -269,17 +269,25 @@
 #define SDO2_SetAnalogMode()      do { ANSELCbits.ANSC3 = 1; } while(0)
 #define SDO2_SetDigitalMode()     do { ANSELCbits.ANSC3 = 0; } while(0)
 
-// get/set RC4 procedures
-#define RC4_SetHigh()            do { LATCbits.LATC4 = 1; } while(0)
-#define RC4_SetLow()             do { LATCbits.LATC4 = 0; } while(0)
-#define RC4_Toggle()             do { LATCbits.LATC4 = ~LATCbits.LATC4; } while(0)
-#define RC4_GetValue()              PORTCbits.RC4
-#define RC4_SetDigitalInput()    do { TRISCbits.TRISC4 = 1; } while(0)
-#define RC4_SetDigitalOutput()   do { TRISCbits.TRISC4 = 0; } while(0)
-#define RC4_SetPullup()             do { WPUCbits.WPUC4 = 1; } while(0)
-#define RC4_ResetPullup()           do { WPUCbits.WPUC4 = 0; } while(0)
-#define RC4_SetAnalogMode()         do { ANSELCbits.ANSC4 = 1; } while(0)
-#define RC4_SetDigitalMode()        do { ANSELCbits.ANSC4 = 0; } while(0)
+// get/set BT_MODE aliases
+#define BT_MODE_TRIS                 TRISCbits.TRISC4
+#define BT_MODE_LAT                  LATCbits.LATC4
+#define BT_MODE_PORT                 PORTCbits.RC4
+#define BT_MODE_WPU                  WPUCbits.WPUC4
+#define BT_MODE_OD                   ODCONCbits.ODCC4
+#define BT_MODE_ANS                  ANSELCbits.ANSC4
+#define BT_MODE_SetHigh()            do { LATCbits.LATC4 = 1; } while(0)
+#define BT_MODE_SetLow()             do { LATCbits.LATC4 = 0; } while(0)
+#define BT_MODE_Toggle()             do { LATCbits.LATC4 = ~LATCbits.LATC4; } while(0)
+#define BT_MODE_GetValue()           PORTCbits.RC4
+#define BT_MODE_SetDigitalInput()    do { TRISCbits.TRISC4 = 1; } while(0)
+#define BT_MODE_SetDigitalOutput()   do { TRISCbits.TRISC4 = 0; } while(0)
+#define BT_MODE_SetPullup()          do { WPUCbits.WPUC4 = 1; } while(0)
+#define BT_MODE_ResetPullup()        do { WPUCbits.WPUC4 = 0; } while(0)
+#define BT_MODE_SetPushPull()        do { ODCONCbits.ODCC4 = 0; } while(0)
+#define BT_MODE_SetOpenDrain()       do { ODCONCbits.ODCC4 = 1; } while(0)
+#define BT_MODE_SetAnalogMode()      do { ANSELCbits.ANSC4 = 1; } while(0)
+#define BT_MODE_SetDigitalMode()     do { ANSELCbits.ANSC4 = 0; } while(0)
 
 // get/set RC5 procedures
 #define RC5_SetHigh()            do { LATCbits.LATC5 = 1; } while(0)

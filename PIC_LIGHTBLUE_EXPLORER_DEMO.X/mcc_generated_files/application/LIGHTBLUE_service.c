@@ -31,6 +31,7 @@
 
 // APP Dependencies
 #include "../rn4870-1-ble-module/rn487x.h"
+#include "../rn4870-1-ble-module/rn487x_interface.h"
 #include "BMA253_accel.h"
 #include "MCP9844_temp_sensor.h"
 #include "../pin_manager.h"
@@ -194,7 +195,7 @@ typedef enum
            
 }PACKET_PARSER_STATE_t;
 
-const char * const protocol_version_number = "1.0.0";   /**< Local Const Variable used to represent Light Blue Protocol version used by application */
+const char * const protocol_version_number = "1.0.1";   /**< Local Const Variable used to represent Light Blue Protocol version used by application */
 static char _hex[] = "0123456789ABCDEF";                /**< Local Variable used for Masking a Hex value result */
 static uint8_t sequenceNumber = 0;                      /**< Local Variable used to keep track of the number of TRANSMIT packets sent from device*/
 static volatile rn487x_gpio_bitmap_t bitMap;            /**< Local Variable used managing stored state of GPIO pin controlled by RN487X */
@@ -477,7 +478,7 @@ static void LIGHTBLUE_SplitByte(char* payload, int8_t value)
 
 static uint8_t LIGHTBLUE_GetButtonValue(void)
 {
-    return NOT_PRESSED_STATE - SW0_GetValue(); // This is forcing proper data for LightBlue
+    return NOT_PRESSED_STATE - BT_MODE_GetValue(); // This is forcing proper data for LightBlue
 }
 
 static uint8_t LIGHTBLUE_GetDataLedValue(void)
