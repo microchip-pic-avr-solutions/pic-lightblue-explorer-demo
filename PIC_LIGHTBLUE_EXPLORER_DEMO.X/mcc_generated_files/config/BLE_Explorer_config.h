@@ -1,28 +1,5 @@
-/**
-  @Generated PIC10 / PIC12 / PIC16 / PIC18 MCUs Header File
-
-  @Company:
-    Microchip Technology Inc.
-
-  @File Name:
-    mcc.c
-
-  @Summary:
-    This is the device_config.h file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
-
-  @Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.3
-        Device            :  PIC16LF18456
-        Driver Version    :  2.00
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above or later
-        MPLAB             :  MPLAB X 5.40
-*/
-
 /*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
+    (c) 2019 Microchip Technology Inc. and its subsidiaries. 
     
     Subject to your compliance with these terms, you may use Microchip software and any 
     derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
@@ -43,13 +20,7 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
+#ifndef BLE_EXPLORER_CONFIG_H
+#define BLE_EXPLORER_CONFIG_H
 
-#ifndef DEVICE_CONFIG_H
-#define	DEVICE_CONFIG_H
-
-#define _XTAL_FREQ 32000000
-
-#endif	/* DEVICE_CONFIG_H */
-/**
- End of File
-*/
+#endif // BLE_EXPLORER_CONFIG_H

@@ -1,0 +1,66 @@
+{
+    "metaDataVersion": "1.0.0",
+    "category": "com.microchip.ide.project",
+    "content": {
+        "metaDataVersion": "1.1.0",
+        "name": "com.microchip.mcu8.mplabx.project.pic-lightblue-explorer-demo",
+        "version": "1.0.1",
+        "displayName": "PIC-BLE development board",
+        "projectName": "pic-lightblue-explorer-demo",
+        "shortDescription": "PIC-BLE Development Board using Microchip RN4870 BLE Module",
+        "ide": {
+            "name": "MPLABX",
+            "semverRange": ">=5.40.0"
+        },
+        "compiler": {
+                "name": "xc8",
+                "semverRange": "^2.20.0"
+        },
+        "dfp": {
+            "name": "PIC16F1xxxx_DFP", 
+            "semverRange": "^1.4.119"
+        },
+        "configurator": {
+            "name": "MCC",
+            "semverRange": ">=3.95.0"
+        },
+        "device": {
+            "metaDataVersion": "1.0.0",
+            "category": "com.microchip.portal.contentRef",
+            "content": {
+                    "metaDataVersion": "1.0.0", 
+                    "category": "com.microchip.device",
+                    "name": "PIC16LF18456", 
+                    "versionRange": "*" 
+            }
+        },
+        "author": "MCU8 Library Development Team",
+        "subcategories": [
+            "MCC", "BLE",
+            [
+               "Peripherals", "UART"
+            ]
+        ],
+        "peripherals": [
+            "Interrupt"
+        ],
+        "keywords": [
+            "MCC",
+            "RN4870",
+            "BLE",
+            "Wireless",
+            "Internet of Things"
+        ],
+        "additionalData": {
+            "longDescription": {
+                "metaDataVersion": "1.0.0",
+                "category": "com.microchip.portal.fileRef",
+                "content": {
+                    "metaDataVersion": "1.0.0",
+                    "fileName": "./README.md",
+                    "mimeType": "text/markdown"
+                }
+            }
+        } 
+    }
+}

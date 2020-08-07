@@ -2,7 +2,6 @@
  * \file rn487x.h
  * \brief This file contains APIs to access features support by RN487X series devices.
  */
-
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. 
     
@@ -27,22 +26,24 @@
 */
 #ifndef RN487X_H
 #define	RN487X_H
-
 #include <stdbool.h>
 #include <stdint.h>
-#include "rn487x_interface.h"    
+#include "rn487x.h"   
 
 /**
  * \ingroup RN487X
  * \brief This macro defines the time needed to place RN487X device in reset.
  */
-#define RN487X_RESET_DELAY_TIME    1
+#define RN487X_RESET_DELAY_TIME         (1)
 
 /**
  * \ingroup RN487X
  * \brief This macro defines the RN487X boot time.
  */
-#define RN487X_STARTUP_DELAY             200
+#define RN487X_STARTUP_DELAY            (200)
+
+//Convert nibble to ASCII
+#define NIBBLE2ASCII(nibble) (((nibble < 0x0A) ? (nibble + '0') : (nibble + 0x57)))
 
 /**
  * \ingroup RN487X
@@ -101,7 +102,7 @@ typedef union
   * \ingroup RN487X
   * \brief Initializes RN487X Device
   * 
-  * This API initializes RN487x Device.
+  * This API initializes RN487X Device.
   * 
   * \return Initialization Status.
   * \retval true - Success
@@ -111,22 +112,22 @@ bool RN487X_Init(void);
 
  /**
   * \ingroup RN487X
-  * \brief Sends out command to RN487x.
+  * \brief Sends out command to RN487X.
   *
   * This API takes command and its length as input and sends that command 
-  * to RN487x.
+  * to RN487X.
   * 
-  * \param cmd RN487x command
-  * \param cmdLen RN487x command length
+  * \param cmd RN487X command
+  * \param cmdLen RN487X command length
   * \return Nothing
   */
 void RN487X_SendCmd(const uint8_t *cmd, uint8_t cmdLen);
 
 /**
  * \ingroup RN487X
- * \brief Gets config value from RN487x by sending get command
+ * \brief Gets config value from RN487X by sending get command
  * 
- * This API gets the config value from RN487x by sending get command.
+ * This API gets the config value from RN487X by sending get command.
  * For more details, refer section 2.5 GET COMMANDS in RN4870-71 user guide.
  * 
  * \param getCmd Get command to send
@@ -140,13 +141,13 @@ uint8_t RN487X_GetCmd(const char *getCmd, uint8_t getCmdLen, char *getCmdResp);
 
  /**
   * \ingroup RN487X
-  * \brief Reads specific message from RN487x.
+  * \brief Reads specific message from RN487X.
   * 
   * This API takes input from application on the expected response/status 
   * message. It starts read RN487X host interface immediately and look for 
   * expected message.
   * 
-  * \param expectedMsg Expected response/status message from RN487x
+  * \param expectedMsg Expected response/status message from RN487X
   * \param msgLen Expected response/status message length.
   * \return Message Match Status
   * \retval true - Expected Message Received
@@ -156,23 +157,9 @@ bool RN487X_ReadMsg(const uint8_t *expectedMsg, uint8_t msgLen);
 
  /**
   * \ingroup RN487X
-  * \brief Waits for specific message from RN487x.
+  * \brief Reads default response from RN487X.
   * 
-  * This API takes input from application on the expected response/status 
-  * message. It waits until it receives expected message from RN487x.
-  * This helps to read the RN487x status messages.
-  * 
-  * \param expectedMsg Expected response/status message from RN487x
-  * \param msgLen Expected response/status message length
-  * \return Nothing
-  */
-void RN487X_WaitForMsg(const char *expectedMsg, uint8_t msgLen);
-
- /**
-  * \ingroup RN487X
-  * \brief Reads default response from RN487x.
-  * 
-  * This API reads RN487x interface for default response which is AOK or ERR.
+  * This API reads RN487X interface for default response which is AOK or ERR.
   * 
   * \return Response Status
   * \retval true - Default Response Received
@@ -182,9 +169,23 @@ bool RN487X_ReadDefaultResponse(void);
 
  /**
   * \ingroup RN487X
-  * \brief Puts the RN487x in command mode.
+  * \brief Waits for specific message from RN487X.
   * 
-  * This API puts the RN487x in command mode. 
+  * This API takes input from application on the expected response/status 
+  * message. It waits until it receives expected message from RN487X.
+  * This helps to read the RN487X status messages.
+  * 
+  * \param expectedMsg Expected response/status message from RN487X
+  * \param msgLen Expected response/status message length
+  * \return Nothing
+  */
+void RN487X_WaitForMsg(const char *expectedMsg, uint8_t msgLen);
+
+ /**
+  * \ingroup RN487X
+  * \brief Puts the RN487X in command mode.
+  * 
+  * This API puts the RN487X in command mode. 
   * 
   * \return Command Mode Status
   * \retval true - Success
@@ -194,9 +195,9 @@ bool RN487X_EnterCmdMode(void);
 
  /**
   * \ingroup RN487X
-  * \brief Puts the RN487x in data mode.
+  * \brief Puts the RN487X in data mode.
   * 
-  * This API puts the RN487x in data mode.
+  * This API puts the RN487X in data mode.
   * 
   * \return Data Mode Status
   * \retval true - Success
@@ -226,15 +227,15 @@ bool RN487X_SetOutputs(rn487x_gpio_bitmap_t bitMap);
   * 
   * \param getGPIOs RN487X pins to read state status from
   * \return GPIO State values
-  * \retval rn487x_gpio_stateBitMap_t - 8bit value coordinated to possible pin options
+  * \retval RN487X_gpio_stateBitMap_t - 8bit value coordinated to possible pin options
   */
 rn487x_gpio_stateBitMap_t RN487X_GetInputsValues(rn487x_gpio_ioBitMap_t getGPIOs);
 
  /**
   * \ingroup RN487X
-  * \brief Resets RN487x.
+  * \brief Resets RN487X.
   * 
-  * This API resets RN487x. For more details, refer R command in 
+  * This API resets RN487X. For more details, refer R command in 
   * RN4870-71 user guide.
   * 
   * \return Reboot Status
@@ -245,9 +246,9 @@ bool RN487X_RebootCmd(void);
 
  /**
   * \ingroup RN487X
-  * \brief Disconnects the BLE link between RN487x and remote device.
+  * \brief Disconnects the BLE link between RN487X and remote device.
   * 
-  * This API disconnects the BLE link between RN487x and remote device. 
+  * This API disconnects the BLE link between RN487X and remote device. 
   * For more details, refer K command in RN4870-71 user guide.
   * \return Disconnect Status
   * \retval true - Success
@@ -292,4 +293,3 @@ bool RN487X_DataReady(void);
 uint8_t RN487X_Read(void);
 
 #endif	/* RN487X_H */
-

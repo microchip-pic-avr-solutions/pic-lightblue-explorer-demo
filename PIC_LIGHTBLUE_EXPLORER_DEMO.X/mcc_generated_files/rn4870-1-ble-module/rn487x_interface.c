@@ -2,7 +2,6 @@
  * \file rn487x_interface.c
  * \brief This file provides and interface between the RN487X and the hardware.
  */
-
 /*
     (c) 2019 Microchip Technology Inc. and its subsidiaries. 
     
@@ -27,9 +26,9 @@
 */
 
 #include <string.h>
+#include "rn487x_interface.h"
 #include "../mcc.h"
 #include "../drivers/uart.h"
-#include "rn487x_interface.h"
 
 static bool connected = false; //**< RN487X connection state */
 
@@ -79,37 +78,147 @@ static void RN487X_SetSystemMode(RN487X_SYSTEM_MODES_t mode);
  * 
  * \param message Passed status message
  * \return Nothing
- * 
  */
 static void RN487X_MessageHandler(char* message);
 
+/**
+ * \ingroup RN487X_INTERFACE
+ * \brief Write API transmitting to RN487X module
+ * 
+ * This API is used to send data bytes to the RN487X module
+ *
+ * HINT: This API is in place to give compile time memory allocation.
+ *       Functionality exist locally within file.
+ *       Use of IN LINE to prevent additional stack depth requirement. 
+ *       APIs can be injected in place if suitable to save (1) stack depth level
+ * 
+ * \param txData - data byte to send
+ * \return Nothing
+ */
+static inline void RN487X_Write(uint8_t txData);
+
+/**
+ * \ingroup RN487X_INTERFACE
+ * \brief Read API to capture data bytes from RN487X module
+ * 
+ * This API is used to receive data bytes to the RN487X module
+ *
+ * HINT: This API is in place to give compile time memory allocation.
+ *       Functionality exist locally within file.
+ *       Use of IN LINE to prevent additional stack depth requirement. 
+ *       APIs can be injected in place if suitable to save (1) stack depth level
+ * 
+ * \param N/A
+ * \return uint8_t readDataByte - Byte captured from RN487X module
+ */
+static inline uint8_t RN487X_Read(void);
+
+/**
+ * \ingroup RN487X_INTERFACE
+ * \brief Returns if Write to RN487X module was completed
+ * 
+ * This API is used to receive status of communication with RN487X module
+ *
+ * HINT: This API is in place to give compile time memory allocation.
+ *       Functionality exist locally within file.
+ *       Use of IN LINE to prevent additional stack depth requirement. 
+ *       APIs can be injected in place if suitable to save (1) stack depth level
+ * 
+ * \param N/A
+ * \return bool status - RN487X is ready for another data byte
+ */
+static inline bool RN487X_is_tx_done(void);
+
+/**
+ * \ingroup RN487X_INTERFACE
+ * \brief Returns if Read from RN487X module is ready
+ * 
+ * This API is used to receive status of communication with RN487X module
+ *
+ * HINT: This API is in place to give compile time memory allocation.
+ *       Functionality exist locally within file.
+ *       Use of IN LINE to prevent additional stack depth requirement. 
+ *       APIs can be injected in place if suitable to save (1) stack depth level
+ * 
+ * \param N/A
+ * \return bool status - RN487X is ready to provide another byte
+ */
+static inline bool RN487X_is_rx_ready(void);
+
+/**
+ * \ingroup RN487X_INTERFACE
+ * \brief Returns if Read from RN487X module is ready
+ * 
+ * This API is used to receive status of communication with RN487X module
+ *
+ * HINT: This API is in place to give compile time memory allocation.
+ *       Functionality exist locally within file.
+ *       Use of IN LINE to prevent additional stack depth requirement. 
+ *       APIs can be injected in place if suitable to save (1) stack depth level
+ * 
+ * \param N/A
+ * \return bool status - RN487X is ready to provide another byte
+ */
+static inline void RN487X_Delay(uint16_t delayCount);
+
+
+/*****************************************************
+*   Driver Instance Declaration(s) API(s)
+******************************************************/  
+
 const iRN487X_FunctionPtrs_t RN487X = {
-#if defined (PIC_DEVICE)
-    .Write = EUSART2_Write,
-    .Read = EUSART2_Read,
-    .TransmitDone = EUSART2_is_tx_done,
-    .DataReady = EUSART2_is_rx_ready,
-#elif defined (AVR_DEVICE)
-    .Write = USART0_Write,
-    .Read = USART0_Read,
-    .TransmitDone = USART0_IsTxDone,
-    .DataReady = USART0_IsRxReady,
-#endif
+    .Write = RN487X_Write,
+    .Read = RN487X_Read,
+    .TransmitDone = RN487X_is_tx_done,
+    .DataReady = RN487X_is_rx_ready,
     .IndicateRx = RN487X_IndicateRx,
-    .Reset = RN487X_Reset,
+    .ResetModule = RN487X_Reset,
     .SetSystemMode = RN487X_SetSystemMode,
-    .DelayMs = DELAY_milliseconds,
+    .DelayMs = RN487X_Delay,
     .AsyncHandler = RN487X_MessageHandler
 };
+
+/*****************************************************
+*   Driver Public API
+******************************************************/  
 
 bool RN487X_IsConnected(void)
 {
     return connected;
 }
 
+/*****************************************************
+*   Driver Implementation Private API(s)
+******************************************************/  
+
+static inline void RN487X_Write(uint8_t txData)
+{
+    uart[UART_BLE].Write(txData);
+}
+
+static inline uint8_t RN487X_Read(void)
+{
+    return uart[UART_BLE].Read();
+}
+
+static inline bool RN487X_is_tx_done(void)
+{
+    return uart[UART_BLE].TransmitDone();
+}
+
+static inline bool RN487X_is_rx_ready(void)
+{
+    return uart[UART_BLE].DataReady();
+}
+
+static inline void RN487X_Delay(uint16_t delayCount)
+{
+    return DELAY_milliseconds(delayCount);
+}
+
 static void RN487X_Reset(bool value)
 {
-    if (value)
+    if (true == value)
     {
         BT_RST_SetLow();
     }
@@ -121,7 +230,7 @@ static void RN487X_Reset(bool value)
 
 static void RN487X_IndicateRx(bool value)
 {
-    if (value)
+    if (true == value)
     {
         BT_RX_IND_SetLow();
     }
@@ -134,32 +243,34 @@ static void RN487X_IndicateRx(bool value)
 static void RN487X_SetSystemMode(RN487X_SYSTEM_MODES_t mode)
 {
     // Set as Output; Will only exist if a switch is tied to RN487X and Microcontroller
-    SW0_SetDigitalOutput(); 
+    BT_MODE_SetDigitalOutput(); 
 
-    if (mode == APPLICATION_MODE)
+    if (APPLICATION_MODE == mode)
     {
-        SW0_SetHigh();
+        BT_MODE_SetHigh();
     }
     else
     {
-        SW0_SetLow();
+        BT_MODE_SetLow();
     }
 
     // Set as Input; Will only exist if a switch is tied to RN487X and Microcontroller
-    SW0_SetDigitalInput();
+    BT_MODE_SetDigitalInput();
 }
+
 
 static void RN487X_MessageHandler(char* message)
 {
-    printf("<<< %s >>> \r\n", message);
     if (strstr(message, "DISCONNECT"))
     {
         connected = false;
-        puts("]");
     }
     else if (strstr(message, "STREAM_OPEN"))
     {
         connected = true;
-        puts("[");
+    }
+    else
+    {
+        // Left Intentionally Blank: For General Messages
     }
 }

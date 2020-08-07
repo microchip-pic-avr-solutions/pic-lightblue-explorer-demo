@@ -8,14 +8,10 @@
     main.c
 
   Summary:
-    This is the main file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+    This is the main file generated for use with PIC-Explorer
 
   Description:
     This header file provides implementations for driver APIs for all modules selected in the GUI.
-    Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.77
-        Device            :  PIC16LF18456
-        Driver Version    :  2.00
 */
 
 /*
@@ -42,10 +38,10 @@
 */
 
 #include "mcc_generated_files/mcc.h"
-#include "application/LIGHTBLUE_service.h"
-#include "rn4870-1-ble-module/rn487x_interface.h"
-#include "rn4870-1-ble-module/rn487x.h"
-#include "drivers/uart.h"
+#include "mcc_generated_files/application/LIGHTBLUE_service.h"
+#include "mcc_generated_files/rn4870-1-ble-module/rn487x_interface.h"
+#include "mcc_generated_files/rn4870-1-ble-module/rn487x.h"
+#include "mcc_generated_files/drivers/uart.h"
 
 /** MACRO used to reference Periodic Timer overflow flag Set. 
  *  This is used by the application to have a semi-accurate 
@@ -72,11 +68,10 @@ static uint8_t serialIndex;                     /**< Local index value for seria
 /*
                          Main application
  */
-void main(void)
+int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    
     RN487X_SetAsyncMessageHandler(statusBuffer, sizeof(statusBuffer));
 
     // Enable the Global Interrupts
@@ -84,7 +79,7 @@ void main(void)
 
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
-    
+
     RN487X_Init();
     LIGHTBLUE_Initialize();
 
@@ -139,6 +134,7 @@ void main(void)
             }
         }
     }
+    return 0;
 }
 /**
  End of File
