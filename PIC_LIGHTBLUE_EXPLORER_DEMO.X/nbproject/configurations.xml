@@ -100,7 +100,7 @@
         <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16F1xxxx_DFP" vendor="Microchip" version="1.4.119"/>
+        <pack name="PIC16F1xxxx_DFP" vendor="Microchip" version="1.5.133"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -121,6 +121,7 @@
       </compileType>
       <makeCustomizationType>
         <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeUseCleanTarget>false</makeUseCleanTarget>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
         <makeCustomizationPostStep></makeCustomizationPostStep>

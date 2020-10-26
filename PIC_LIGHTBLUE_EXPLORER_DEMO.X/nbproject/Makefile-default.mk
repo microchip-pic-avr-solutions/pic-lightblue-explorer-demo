@@ -94,7 +94,7 @@ MP_PROCESSOR_OPTION=16LF18456
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1: mcc_generated_files/application/BMA253_accel.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1: mcc_generated_files/application/BMA253_accel.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/application" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1 
@@ -102,7 +102,7 @@ ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1: mcc_generated_file
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.d ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1: mcc_generated_files/application/MCP9844_temp_sensor.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1: mcc_generated_files/application/MCP9844_temp_sensor.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/application" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1 
@@ -110,7 +110,7 @@ ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1: mcc_generat
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.d ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1: mcc_generated_files/application/LIGHTBLUE_service.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1: mcc_generated_files/application/LIGHTBLUE_service.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/application" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1 
@@ -118,7 +118,7 @@ ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1: mcc_generated
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.d ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1: mcc_generated_files/drivers/i2c_types.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1: mcc_generated_files/drivers/i2c_types.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1 
@@ -126,7 +126,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1: mcc_generated_files/drive
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.d ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1: mcc_generated_files/drivers/i2c_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1: mcc_generated_files/drivers/i2c_master.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1 
@@ -134,7 +134,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1: mcc_generated_files/driv
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.d ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1: mcc_generated_files/drivers/i2c_simple_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1: mcc_generated_files/drivers/i2c_simple_master.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1 
@@ -142,7 +142,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1: mcc_generated_fil
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.d ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1: mcc_generated_files/drivers/spi_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1: mcc_generated_files/drivers/spi_master.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1 
@@ -150,7 +150,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1: mcc_generated_files/driv
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.d ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/uart.p1: mcc_generated_files/drivers/uart.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/uart.p1: mcc_generated_files/drivers/uart.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1 
@@ -158,7 +158,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1: mcc_generated_files/drivers/ua
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/uart.d ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1: mcc_generated_files/rn4870-1-ble-module/rn487x.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1: mcc_generated_files/rn4870-1-ble-module/rn487x.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1 
@@ -166,7 +166,7 @@ ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1: mcc_generated_fi
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.d ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1: mcc_generated_files/rn4870-1-ble-module/rn487x_interface.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1: mcc_generated_files/rn4870-1-ble-module/rn487x_interface.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1 
@@ -174,7 +174,7 @@ ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1: mcc_ge
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.d ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/eusart2.p1: mcc_generated_files/eusart2.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/eusart2.p1: mcc_generated_files/eusart2.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart2.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart2.p1 
@@ -182,7 +182,7 @@ ${OBJECTDIR}/mcc_generated_files/eusart2.p1: mcc_generated_files/eusart2.c  nbpr
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/eusart2.d ${OBJECTDIR}/mcc_generated_files/eusart2.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/eusart2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/eusart1.p1: mcc_generated_files/eusart1.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/eusart1.p1: mcc_generated_files/eusart1.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart1.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart1.p1 
@@ -190,7 +190,7 @@ ${OBJECTDIR}/mcc_generated_files/eusart1.p1: mcc_generated_files/eusart1.c  nbpr
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/eusart1.d ${OBJECTDIR}/mcc_generated_files/eusart1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/eusart1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1: mcc_generated_files/interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1: mcc_generated_files/interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1 
@@ -198,7 +198,7 @@ ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1: mcc_generated_files/inter
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.d ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/mcc.p1: mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/mcc.p1: mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/mcc.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/mcc.p1 
@@ -206,7 +206,7 @@ ${OBJECTDIR}/mcc_generated_files/mcc.p1: mcc_generated_files/mcc.c  nbproject/Ma
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/mcc.d ${OBJECTDIR}/mcc_generated_files/mcc.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/mcc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/pin_manager.p1: mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/pin_manager.p1: mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/pin_manager.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/pin_manager.p1 
@@ -214,7 +214,7 @@ ${OBJECTDIR}/mcc_generated_files/pin_manager.p1: mcc_generated_files/pin_manager
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/pin_manager.d ${OBJECTDIR}/mcc_generated_files/pin_manager.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/pin_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1: mcc_generated_files/i2c1_driver.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1: mcc_generated_files/i2c1_driver.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1 
@@ -222,7 +222,7 @@ ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1: mcc_generated_files/i2c1_driver
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.d ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/tmr0.p1: mcc_generated_files/tmr0.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/tmr0.p1: mcc_generated_files/tmr0.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr0.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr0.p1 
@@ -230,7 +230,7 @@ ${OBJECTDIR}/mcc_generated_files/tmr0.p1: mcc_generated_files/tmr0.c  nbproject/
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/tmr0.d ${OBJECTDIR}/mcc_generated_files/tmr0.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/tmr0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/spi2_driver.p1: mcc_generated_files/spi2_driver.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/spi2_driver.p1: mcc_generated_files/spi2_driver.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1 
@@ -238,7 +238,7 @@ ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1: mcc_generated_files/spi2_driver
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/spi2_driver.d ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/delay.p1: mcc_generated_files/delay.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/delay.p1: mcc_generated_files/delay.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.p1 
@@ -246,7 +246,7 @@ ${OBJECTDIR}/mcc_generated_files/delay.p1: mcc_generated_files/delay.c  nbprojec
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/delay.d ${OBJECTDIR}/mcc_generated_files/delay.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/device_config.p1: mcc_generated_files/device_config.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/device_config.p1: mcc_generated_files/device_config.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/device_config.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/device_config.p1 
@@ -254,7 +254,7 @@ ${OBJECTDIR}/mcc_generated_files/device_config.p1: mcc_generated_files/device_co
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/device_config.d ${OBJECTDIR}/mcc_generated_files/device_config.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/device_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
 	@${RM} ${OBJECTDIR}/main.p1 
@@ -263,7 +263,7 @@ ${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1: mcc_generated_files/application/BMA253_accel.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1: mcc_generated_files/application/BMA253_accel.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/application" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1 
@@ -271,7 +271,7 @@ ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1: mcc_generated_file
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.d ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/application/BMA253_accel.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1: mcc_generated_files/application/MCP9844_temp_sensor.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1: mcc_generated_files/application/MCP9844_temp_sensor.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/application" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1 
@@ -279,7 +279,7 @@ ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1: mcc_generat
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.d ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/application/MCP9844_temp_sensor.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1: mcc_generated_files/application/LIGHTBLUE_service.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1: mcc_generated_files/application/LIGHTBLUE_service.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/application" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1 
@@ -287,7 +287,7 @@ ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1: mcc_generated
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.d ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/application/LIGHTBLUE_service.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1: mcc_generated_files/drivers/i2c_types.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1: mcc_generated_files/drivers/i2c_types.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1 
@@ -295,7 +295,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1: mcc_generated_files/drive
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.d ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_types.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1: mcc_generated_files/drivers/i2c_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1: mcc_generated_files/drivers/i2c_master.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1 
@@ -303,7 +303,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1: mcc_generated_files/driv
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.d ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1: mcc_generated_files/drivers/i2c_simple_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1: mcc_generated_files/drivers/i2c_simple_master.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1 
@@ -311,7 +311,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1: mcc_generated_fil
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.d ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/i2c_simple_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1: mcc_generated_files/drivers/spi_master.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1: mcc_generated_files/drivers/spi_master.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1 
@@ -319,7 +319,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1: mcc_generated_files/driv
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.d ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/spi_master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/drivers/uart.p1: mcc_generated_files/drivers/uart.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/drivers/uart.p1: mcc_generated_files/drivers/uart.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/drivers" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1 
@@ -327,7 +327,7 @@ ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1: mcc_generated_files/drivers/ua
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/drivers/uart.d ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/drivers/uart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1: mcc_generated_files/rn4870-1-ble-module/rn487x.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1: mcc_generated_files/rn4870-1-ble-module/rn487x.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1 
@@ -335,7 +335,7 @@ ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1: mcc_generated_fi
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.d ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1: mcc_generated_files/rn4870-1-ble-module/rn487x_interface.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1: mcc_generated_files/rn4870-1-ble-module/rn487x_interface.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1 
@@ -343,7 +343,7 @@ ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1: mcc_ge
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.d ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/rn4870-1-ble-module/rn487x_interface.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/eusart2.p1: mcc_generated_files/eusart2.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/eusart2.p1: mcc_generated_files/eusart2.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart2.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart2.p1 
@@ -351,7 +351,7 @@ ${OBJECTDIR}/mcc_generated_files/eusart2.p1: mcc_generated_files/eusart2.c  nbpr
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/eusart2.d ${OBJECTDIR}/mcc_generated_files/eusart2.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/eusart2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/eusart1.p1: mcc_generated_files/eusart1.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/eusart1.p1: mcc_generated_files/eusart1.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart1.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/eusart1.p1 
@@ -359,7 +359,7 @@ ${OBJECTDIR}/mcc_generated_files/eusart1.p1: mcc_generated_files/eusart1.c  nbpr
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/eusart1.d ${OBJECTDIR}/mcc_generated_files/eusart1.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/eusart1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1: mcc_generated_files/interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1: mcc_generated_files/interrupt_manager.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1 
@@ -367,7 +367,7 @@ ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1: mcc_generated_files/inter
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.d ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/interrupt_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/mcc.p1: mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/mcc.p1: mcc_generated_files/mcc.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/mcc.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/mcc.p1 
@@ -375,7 +375,7 @@ ${OBJECTDIR}/mcc_generated_files/mcc.p1: mcc_generated_files/mcc.c  nbproject/Ma
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/mcc.d ${OBJECTDIR}/mcc_generated_files/mcc.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/mcc.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/pin_manager.p1: mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/pin_manager.p1: mcc_generated_files/pin_manager.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/pin_manager.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/pin_manager.p1 
@@ -383,7 +383,7 @@ ${OBJECTDIR}/mcc_generated_files/pin_manager.p1: mcc_generated_files/pin_manager
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/pin_manager.d ${OBJECTDIR}/mcc_generated_files/pin_manager.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/pin_manager.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1: mcc_generated_files/i2c1_driver.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1: mcc_generated_files/i2c1_driver.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1 
@@ -391,7 +391,7 @@ ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1: mcc_generated_files/i2c1_driver
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.d ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/i2c1_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/tmr0.p1: mcc_generated_files/tmr0.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/tmr0.p1: mcc_generated_files/tmr0.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr0.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/tmr0.p1 
@@ -399,7 +399,7 @@ ${OBJECTDIR}/mcc_generated_files/tmr0.p1: mcc_generated_files/tmr0.c  nbproject/
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/tmr0.d ${OBJECTDIR}/mcc_generated_files/tmr0.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/tmr0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/spi2_driver.p1: mcc_generated_files/spi2_driver.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/spi2_driver.p1: mcc_generated_files/spi2_driver.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1 
@@ -407,7 +407,7 @@ ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1: mcc_generated_files/spi2_driver
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/spi2_driver.d ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/spi2_driver.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/delay.p1: mcc_generated_files/delay.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/delay.p1: mcc_generated_files/delay.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/delay.p1 
@@ -415,7 +415,7 @@ ${OBJECTDIR}/mcc_generated_files/delay.p1: mcc_generated_files/delay.c  nbprojec
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/delay.d ${OBJECTDIR}/mcc_generated_files/delay.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/mcc_generated_files/device_config.p1: mcc_generated_files/device_config.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/mcc_generated_files/device_config.p1: mcc_generated_files/device_config.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/mcc_generated_files" 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/device_config.p1.d 
 	@${RM} ${OBJECTDIR}/mcc_generated_files/device_config.p1 
@@ -423,7 +423,7 @@ ${OBJECTDIR}/mcc_generated_files/device_config.p1: mcc_generated_files/device_co
 	@-${MV} ${OBJECTDIR}/mcc_generated_files/device_config.d ${OBJECTDIR}/mcc_generated_files/device_config.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/mcc_generated_files/device_config.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.p1.d 
 	@${RM} ${OBJECTDIR}/main.p1 
