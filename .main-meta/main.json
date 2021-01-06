@@ -9,11 +9,11 @@
         "projectName": "pic-lightblue-explorer-demo",
         "shortDescription": "PIC-BLE Development Board using Microchip RN4870 BLE Module",
         "ide": {
-            "name": "MPLABX",
+            "name": "MPLAB X",
             "semverRange": ">=5.40.0"
         },
         "compiler": {
-                "name": "xc8",
+                "name": "XC8",
                 "semverRange": "^2.20.0"
         },
         "dfp": {
