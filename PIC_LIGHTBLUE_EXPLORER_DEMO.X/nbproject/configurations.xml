@@ -13,27 +13,25 @@
           <itemPath>mcc_generated_files/application/LIGHTBLUE_service.h</itemPath>
         </logicalFolder>
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
-          <itemPath>mcc_generated_files/drivers/i2c_types.h</itemPath>
-          <itemPath>mcc_generated_files/drivers/i2c_master.h</itemPath>
           <itemPath>mcc_generated_files/drivers/uart.h</itemPath>
+          <itemPath>mcc_generated_files/drivers/i2c_master.h</itemPath>
           <itemPath>mcc_generated_files/drivers/i2c_simple_master.h</itemPath>
-          <itemPath>mcc_generated_files/drivers/spi_master.h</itemPath>
+          <itemPath>mcc_generated_files/drivers/i2c_types.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="rn487x" projectFiles="true">
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x.h</itemPath>
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x_interface.h</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x_interface.h</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x.h</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
-        <itemPath>mcc_generated_files/i2c1_driver.h</itemPath>
         <itemPath>mcc_generated_files/eusart2.h</itemPath>
         <itemPath>mcc_generated_files/eusart1.h</itemPath>
-        <itemPath>mcc_generated_files/delay.h</itemPath>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
-        <itemPath>mcc_generated_files/spi2_driver.h</itemPath>
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
         <itemPath>mcc_generated_files/tmr0.h</itemPath>
         <itemPath>mcc_generated_files/device_config.h</itemPath>
-        <itemPath>mcc_generated_files/spi2_types.h</itemPath>
+        <itemPath>mcc_generated_files/i2c1_driver.h</itemPath>
+        <itemPath>mcc_generated_files/i2c1_master.h</itemPath>
+        <itemPath>mcc_generated_files/delay.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -51,27 +49,29 @@
           <itemPath>mcc_generated_files/application/MCP9844_temp_sensor.c</itemPath>
           <itemPath>mcc_generated_files/application/LIGHTBLUE_service.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="docs" displayName="docs" projectFiles="true">
+          <itemPath>mcc_generated_files/docs/uart.dox</itemPath>
+        </logicalFolder>
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
-          <itemPath>mcc_generated_files/drivers/i2c_types.c</itemPath>
+          <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
           <itemPath>mcc_generated_files/drivers/i2c_master.c</itemPath>
           <itemPath>mcc_generated_files/drivers/i2c_simple_master.c</itemPath>
-          <itemPath>mcc_generated_files/drivers/spi_master.c</itemPath>
-          <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
+          <itemPath>mcc_generated_files/drivers/i2c_types.c</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="rn487x" projectFiles="true">
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x.c</itemPath>
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x_interface.c</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x_interface.c</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/eusart2.c</itemPath>
         <itemPath>mcc_generated_files/eusart1.c</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
-        <itemPath>mcc_generated_files/i2c1_driver.c</itemPath>
         <itemPath>mcc_generated_files/tmr0.c</itemPath>
-        <itemPath>mcc_generated_files/spi2_driver.c</itemPath>
-        <itemPath>mcc_generated_files/delay.c</itemPath>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
+        <itemPath>mcc_generated_files/i2c1_driver.c</itemPath>
+        <itemPath>mcc_generated_files/i2c1_master.c</itemPath>
+        <itemPath>mcc_generated_files/delay.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -97,7 +97,7 @@
         <platformTool>nEdbgTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>4</platform>
+        <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16F1xxxx_DFP" vendor="Microchip" version="1.5.133"/>
@@ -267,6 +267,7 @@
         <property key="stack-size-main" value="auto"/>
         <property key="stack-type" value="hybrid"/>
         <property key="user-pack-device-support" value=""/>
+        <property key="wpo-lto" value="false"/>
       </XC8-config-global>
       <nEdbgTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -281,6 +282,7 @@
         <property key="firmware.toolpack"
                   value="Press to select which tool pack to use"/>
         <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -294,9 +296,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="/Users/c14312/projects/BLE/git/ble-iot-pic/PIC_LIGHTBLUE_EXPLORER_DEMO.X/debug/default/PIC_LIGHTBLUE_EXPLORER_DEMO_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
