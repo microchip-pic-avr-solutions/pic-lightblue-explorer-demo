@@ -20,6 +20,7 @@
         </logicalFolder>
         <logicalFolder name="examples" displayName="examples" projectFiles="true">
           <itemPath>mcc_generated_files/examples/rn487x_example.h</itemPath>
+          <itemPath>mcc_generated_files/examples/i2c1_master_example.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="rn487x" projectFiles="true">
           <itemPath>mcc_generated_files/rn487x/rn487x_interface.h</itemPath>
@@ -55,6 +56,7 @@
         <logicalFolder name="docs" displayName="docs" projectFiles="true">
           <itemPath>mcc_generated_files/docs/uart.dox</itemPath>
           <itemPath>mcc_generated_files/docs/delay.dox</itemPath>
+          <itemPath>mcc_generated_files/docs/i2c_simple.dox</itemPath>
         </logicalFolder>
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
           <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
@@ -64,6 +66,7 @@
         </logicalFolder>
         <logicalFolder name="examples" displayName="examples" projectFiles="true">
           <itemPath>mcc_generated_files/examples/rn487x_example.c</itemPath>
+          <itemPath>mcc_generated_files/examples/i2c1_master_example.c</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="rn487x" projectFiles="true">
           <itemPath>mcc_generated_files/rn487x/rn487x_interface.c</itemPath>
