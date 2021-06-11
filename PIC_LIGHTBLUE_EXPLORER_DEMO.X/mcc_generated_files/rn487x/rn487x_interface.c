@@ -161,6 +161,64 @@ static inline bool RN487X_is_rx_ready(void);
  */
 static inline void RN487X_Delay(uint16_t delayCount);
 
+/*****************************************************
+*   *OPTIONAL* APPLICATION MESSAGE FORMATTING API(s)
+******************************************************/  
+/**
+ * \ingroup RN487X_MESSAGE_TYPE
+ * Enum of the MESSAGE TYPES supported in Driver Example(s)
+ */
+typedef enum 
+{
+    DISCONNECT_MSG  = 0,
+    STREAM_OPEN_MSG = 1,
+    GENERAL_MSG     = 2,
+}RN487X_MESSAGE_TYPE;
+/**
+ * \def GENERAL_PRINT_SIZE_LIMIT
+ * This macro provide a definition used to process 
+ */
+#define GENERAL_PRINT_SIZE_LIMIT        (32)
+/**
+ * \ingroup RN487X_MESSAGE
+ * \brief Prints the START Message "<<< " for UART_CDC
+ * 
+ * This API prints *Optional Application* Messages
+ *
+ * \param N/A
+ * \return N/A
+ */
+static inline void rn487x_PrintMessageStart(void);
+/**
+ * \ingroup RN487X_MESSAGE
+ * \brief Prints the END Message ">>>\r\n" for UART_CDC
+ * 
+ * This API prints *Optional Application* Messages
+ *
+ * \param N/A
+ * \return N/A
+ */
+static inline void rn487x_PrintMessageEnd(void);
+/**
+ * \ingroup RN487X_MESSAGE
+ * \brief Prints the Indicator [ or ] to UART_CDC
+ *        [ - Disconnected | ] - Connected
+ * 
+ * This API prints *Optional Application* Messages
+ *
+ * \param N/A
+ * \return N/A
+ */
+static inline void rn487x_PrintIndicatorCharacters(RN487X_MESSAGE_TYPE messageType);
+/**
+ * \ingroup RN487X_MESSAGE
+ * 
+ * This API prints *Optional Application* Messages
+ *
+ * \param N/A
+ * \return N/A
+ */
+static inline void rn487x_PrintMessage(char* passedMessage);
 
 /*****************************************************
 *   Driver Instance Declaration(s) API(s)
@@ -258,19 +316,74 @@ static void RN487X_SetSystemMode(RN487X_SYSTEM_MODES_t mode)
     BT_MODE_SetDigitalInput();
 }
 
+/*****************************************************
+*   *Optional* Message Formatting Private API(s)
+******************************************************/  
+
+static inline void rn487x_PrintMessageStart(void)
+{
+    uart[UART_CDC].Write('<');
+    uart[UART_CDC].Write('<');
+    uart[UART_CDC].Write('<');
+    uart[UART_CDC].Write(' ');
+}
+
+static inline void rn487x_PrintMessageEnd(void)
+{
+    uart[UART_CDC].Write(' ');
+    uart[UART_CDC].Write('>');
+    uart[UART_CDC].Write('>');
+    uart[UART_CDC].Write('>');
+    uart[UART_CDC].Write(' ');
+    uart[UART_CDC].Write('\r');
+    uart[UART_CDC].Write('\n');
+}
+
+static inline void rn487x_PrintIndicatorCharacters(RN487X_MESSAGE_TYPE messageType)
+{
+    if (DISCONNECT_MSG == messageType)
+    {
+        uart[UART_CDC].Write('[');
+    }
+    else if (STREAM_OPEN_MSG == messageType)
+    {
+        uart[UART_CDC].Write(']');
+    }
+    else
+    {
+
+    }
+}
+
+static inline void rn487x_PrintMessage(char* passedMessage)
+{
+    char printCharacter [GENERAL_PRINT_SIZE_LIMIT];
+    strcpy(printCharacter, passedMessage);
+    for (uint8_t messageIndex = 0; messageIndex < strlen(passedMessage); messageIndex++)
+    {
+        uart[UART_CDC].Write(printCharacter[messageIndex]);  
+    }
+}
 
 static void RN487X_MessageHandler(char* message)
 {
+    RN487X_MESSAGE_TYPE messageType;
+    rn487x_PrintMessageStart();
     if (strstr(message, "DISCONNECT"))
     {
+        messageType = DISCONNECT_MSG;
         connected = false;
     }
     else if (strstr(message, "STREAM_OPEN"))
     {
+        messageType = STREAM_OPEN_MSG;
         connected = true;
     }
     else
     {
-        // Left Intentionally Blank: For General Messages
+        messageType = GENERAL_MSG;
     }
+    rn487x_PrintMessage(message);
+    rn487x_PrintMessageEnd();
+    rn487x_PrintIndicatorCharacters(messageType);
 }
