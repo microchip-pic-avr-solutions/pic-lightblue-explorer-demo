@@ -30,8 +30,8 @@
 #include "LIGHTBLUE_service.h"
 
 // APP Dependencies
-#include "../rn4870-1-ble-module/rn487x.h"
-#include "../rn4870-1-ble-module/rn487x_interface.h"
+#include "../rn487x/rn487x.h"
+#include "../rn487x/rn487x_interface.h"
 #include "BMA253_accel.h"
 #include "MCP9844_temp_sensor.h"
 #include "../pin_manager.h"

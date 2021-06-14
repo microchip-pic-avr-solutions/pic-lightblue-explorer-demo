@@ -1,5 +1,11 @@
-/*
-    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+/**
+\file
+\defgroup doc_driver_delay_code Delay Driver Source Code Reference
+\ingroup doc_driver_delay
+\brief This file contains the API to generate delays in the millisecond and microsecond ranges.
+\copyright (c) 2020 Microchip Technology Inc. and its subsidiaries.
+\page License
+    (c) 2020 Microchip Technology Inc. and its subsidiaries. You may use this
     software and any derivatives exclusively with Microchip products.
 
     THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER

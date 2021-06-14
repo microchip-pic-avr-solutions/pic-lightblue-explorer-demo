@@ -1,5 +1,11 @@
-/*
-    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+/**
+\file
+\defgroup doc_driver_uart_code UART Driver Source Code Reference
+\ingroup doc_driver_uart
+\brief This file contains the UART configurations selected by the user in the UART Foundation Services MCC Interface.
+\copyright (c) 2020 Microchip Technology Inc. and its subsidiaries.
+\page License
+    (c) 2020 Microchip Technology Inc. and its subsidiaries. You may use this
     software and any derivatives exclusively with Microchip products.
 
     THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
@@ -18,24 +24,30 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
+**/
 
 #ifndef _UART_H
 #define _UART_H
 
-/**
-  Section: Included Files
- */
+
 #include <stdint.h>
 #include <stddef.h>
-#include "../eusart1.h"
 #include "../eusart2.h"
+#include "../eusart1.h"
 
+/**
+*   \ingroup doc_driver_uart_code
+*   \enum uart_configurations_t uart.h
+*/
 typedef enum { 
-    UART_CDC,
-    UART_BLE
+    UART_CDC /**<UART Name */,
+    UART_BLE /**<UART Name */
 } uart_configurations_t;
 
+/**
+*   \ingroup doc_driver_uart_code
+*   \struct uart_functions_t uart.h
+*/
 typedef struct { uint8_t (*Read)(void); void (*Write)(uint8_t txdata); bool (*TransmitReady)(void); bool (*DataReady)(void); void (*SetTxISR)(void (* interruptHandler)(void)); void (*RxDefaultISR)(void); void (*SetRxISR)(void (* interruptHandler)(void)); bool (*TransmitDone)(void); void (*TxDefaultISR)(void); void (*Initialize)(void);  } uart_functions_t;
 
 extern const uart_functions_t uart[];
