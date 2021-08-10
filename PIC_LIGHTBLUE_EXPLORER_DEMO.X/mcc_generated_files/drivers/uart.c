@@ -1,5 +1,10 @@
-/*
-    (c) 2016 Microchip Technology Inc. and its subsidiaries. You may use this
+/**
+\file
+\addtogroup doc_driver_uart_code
+\brief This file contains the function names of the operations that can be carried out by the UART Foundation Services .
+\copyright (c) 2020 Microchip Technology Inc. and its subsidiaries.
+\page License
+    (c) 2020 Microchip Technology Inc. and its subsidiaries. You may use this
     software and any derivatives exclusively with Microchip products.
 
     THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER
@@ -18,13 +23,14 @@
 
     MICROCHIP PROVIDES THIS SOFTWARE CONDITIONALLY UPON YOUR ACCEPTANCE OF THESE
     TERMS.
-*/
+**/
 
 /**
   Section: Included Files
  */
 
 #include "uart.h"   
+
 
 const uart_functions_t uart[] = {   
     {EUSART1_Read, EUSART1_Write, EUSART1_is_tx_ready, EUSART1_is_rx_ready, EUSART1_SetTxInterruptHandler, EUSART1_Receive_ISR, EUSART1_SetRxInterruptHandler, EUSART1_is_tx_done, EUSART1_Transmit_ISR, EUSART1_Initialize },

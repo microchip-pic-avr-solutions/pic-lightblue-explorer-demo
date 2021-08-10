@@ -13,27 +13,29 @@
           <itemPath>mcc_generated_files/application/LIGHTBLUE_service.h</itemPath>
         </logicalFolder>
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
-          <itemPath>mcc_generated_files/drivers/i2c_types.h</itemPath>
-          <itemPath>mcc_generated_files/drivers/i2c_master.h</itemPath>
           <itemPath>mcc_generated_files/drivers/uart.h</itemPath>
+          <itemPath>mcc_generated_files/drivers/i2c_master.h</itemPath>
           <itemPath>mcc_generated_files/drivers/i2c_simple_master.h</itemPath>
-          <itemPath>mcc_generated_files/drivers/spi_master.h</itemPath>
+          <itemPath>mcc_generated_files/drivers/i2c_types.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="examples" displayName="examples" projectFiles="true">
+          <itemPath>mcc_generated_files/examples/rn487x_example.h</itemPath>
+          <itemPath>mcc_generated_files/examples/i2c1_master_example.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="rn487x" projectFiles="true">
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x.h</itemPath>
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x_interface.h</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x_interface.h</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x.h</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
-        <itemPath>mcc_generated_files/i2c1_driver.h</itemPath>
         <itemPath>mcc_generated_files/eusart2.h</itemPath>
         <itemPath>mcc_generated_files/eusart1.h</itemPath>
-        <itemPath>mcc_generated_files/delay.h</itemPath>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
-        <itemPath>mcc_generated_files/spi2_driver.h</itemPath>
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
         <itemPath>mcc_generated_files/tmr0.h</itemPath>
         <itemPath>mcc_generated_files/device_config.h</itemPath>
-        <itemPath>mcc_generated_files/spi2_types.h</itemPath>
+        <itemPath>mcc_generated_files/i2c1_driver.h</itemPath>
+        <itemPath>mcc_generated_files/i2c1_master.h</itemPath>
+        <itemPath>mcc_generated_files/delay.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -51,27 +53,35 @@
           <itemPath>mcc_generated_files/application/MCP9844_temp_sensor.c</itemPath>
           <itemPath>mcc_generated_files/application/LIGHTBLUE_service.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="docs" displayName="docs" projectFiles="true">
+          <itemPath>mcc_generated_files/docs/uart.dox</itemPath>
+          <itemPath>mcc_generated_files/docs/delay.dox</itemPath>
+          <itemPath>mcc_generated_files/docs/i2c_simple.dox</itemPath>
+        </logicalFolder>
         <logicalFolder name="drivers" displayName="drivers" projectFiles="true">
-          <itemPath>mcc_generated_files/drivers/i2c_types.c</itemPath>
+          <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
           <itemPath>mcc_generated_files/drivers/i2c_master.c</itemPath>
           <itemPath>mcc_generated_files/drivers/i2c_simple_master.c</itemPath>
-          <itemPath>mcc_generated_files/drivers/spi_master.c</itemPath>
-          <itemPath>mcc_generated_files/drivers/uart.c</itemPath>
+          <itemPath>mcc_generated_files/drivers/i2c_types.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="examples" displayName="examples" projectFiles="true">
+          <itemPath>mcc_generated_files/examples/rn487x_example.c</itemPath>
+          <itemPath>mcc_generated_files/examples/i2c1_master_example.c</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="rn487x" projectFiles="true">
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x.c</itemPath>
-          <itemPath>mcc_generated_files/rn4870-1-ble-module/rn487x_interface.c</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x_interface.c</itemPath>
+          <itemPath>mcc_generated_files/rn487x/rn487x.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/eusart2.c</itemPath>
         <itemPath>mcc_generated_files/eusart1.c</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
-        <itemPath>mcc_generated_files/i2c1_driver.c</itemPath>
         <itemPath>mcc_generated_files/tmr0.c</itemPath>
-        <itemPath>mcc_generated_files/spi2_driver.c</itemPath>
-        <itemPath>mcc_generated_files/delay.c</itemPath>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
+        <itemPath>mcc_generated_files/i2c1_driver.c</itemPath>
+        <itemPath>mcc_generated_files/i2c1_master.c</itemPath>
+        <itemPath>mcc_generated_files/delay.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -96,11 +106,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>nEdbgTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.20</languageToolchainVersion>
-        <platform>4</platform>
+        <languageToolchainVersion>2.32</languageToolchainVersion>
+        <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC16F1xxxx_DFP" vendor="Microchip" version="1.5.133"/>
+        <pack name="PIC16F1xxxx_DFP" vendor="Microchip" version="1.8.149"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -251,6 +261,51 @@
         <property key="programoptions.uselvpprogramming" value="false"/>
         <property key="voltagevalue" value="1.875"/>
       </PICkit3PlatformTool>
+      <Tool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="Freeze Peripherals" value="true"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface"
+                  value="${communication.interface.default}"/>
+        <property key="communication.speed" value="${communication.speed.default}"/>
+        <property key="debugoptions.useswbreakpoints" value="true"/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="memories.rww" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges"
+                  value="${memories.dataflash.default}"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value="f000-f0ff"/>
+        <property key="programoptions.preserveprogram.ranges" value="0-3fff"/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
+        <property key="voltagevalue" value=""/>
+      </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
       </XC8-CO>
@@ -267,6 +322,7 @@
         <property key="stack-size-main" value="auto"/>
         <property key="stack-type" value="hybrid"/>
         <property key="user-pack-device-support" value=""/>
+        <property key="wpo-lto" value="false"/>
       </XC8-config-global>
       <nEdbgTool>
         <property key="AutoSelectMemRanges" value="auto"/>
@@ -281,6 +337,7 @@
         <property key="firmware.toolpack"
                   value="Press to select which tool pack to use"/>
         <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -294,9 +351,8 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="memories.rww" value="true"/>
         <property key="poweroptions.powerenable" value="false"/>
-        <property key="programmerToGoFilePath"
-                  value="/Users/c14312/projects/BLE/git/ble-iot-pic/PIC_LIGHTBLUE_EXPLORER_DEMO.X/debug/default/PIC_LIGHTBLUE_EXPLORER_DEMO_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"

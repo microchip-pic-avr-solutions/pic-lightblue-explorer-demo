@@ -39,8 +39,8 @@
 
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/application/LIGHTBLUE_service.h"
-#include "mcc_generated_files/rn4870-1-ble-module/rn487x_interface.h"
-#include "mcc_generated_files/rn4870-1-ble-module/rn487x.h"
+#include "mcc_generated_files/rn487x/rn487x_interface.h"
+#include "mcc_generated_files/rn487x/rn487x.h"
 #include "mcc_generated_files/drivers/uart.h"
 
 /** MACRO used to reference Periodic Timer overflow flag Set. 
