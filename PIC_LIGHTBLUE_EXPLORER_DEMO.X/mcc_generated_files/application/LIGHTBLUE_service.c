@@ -204,7 +204,7 @@ typedef enum
            
 }PACKET_PARSER_STATE_t;
 
-const char * const protocol_version_number = "1.0.2";   /**< Local Const Variable used to represent Light Blue Protocol version used by application */
+const char * const protocol_version_number = "1.1.0";   /**< Local Const Variable used to represent Light Blue Protocol version used by application */
 static char _hex[] = "0123456789ABCDEF";                /**< Local Variable used for Masking a Hex value result */
 static uint8_t sequenceNumber = 0;                      /**< Local Variable used to keep track of the number of TRANSMIT packets sent from device*/
 static volatile rn487x_gpio_bitmap_t bitMap;            /**< Local Variable used managing stored state of GPIO pin controlled by RN487X */
