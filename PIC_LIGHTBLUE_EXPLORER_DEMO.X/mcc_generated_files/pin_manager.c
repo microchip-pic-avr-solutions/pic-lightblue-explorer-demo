@@ -13,12 +13,12 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.3
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC16LF18456
         Driver Version    :  2.11
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC8 2.31 and above
+        MPLAB             :  MPLAB X 5.45
 
     Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 */
@@ -62,21 +62,21 @@ void PIN_MANAGER_Initialize(void)
     LATE = 0x00;
     LATA = 0x31;
     LATB = 0x00;
-    LATC = 0xC1;
+    LATC = 0x01;
 
     /**
     TRISx registers
     */
     TRISE = 0x08;
     TRISA = 0xDE;
-    TRISB = 0xEF;
-    TRISC = 0x25;
+    TRISB = 0xFE;
+    TRISC = 0xAF;
 
     /**
     ANSELx registers
     */
-    ANSELC = 0x00;
-    ANSELB = 0xC9;
+    ANSELC = 0x02;
+    ANSELB = 0xE1;
     ANSELA = 0x0E;
 
     /**
@@ -98,9 +98,9 @@ void PIN_MANAGER_Initialize(void)
     /**
     SLRCONx registers
     */
-    SLRCONA = 0xFF;
+    SLRCONA = 0x7E;
     SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
+    SLRCONC = 0x3F;
 
     /**
     INLVLx registers
@@ -131,12 +131,12 @@ void PIN_MANAGER_Initialize(void)
 	
     SSP1CLKPPS = 0x09;   //RB1->MSSP1:SCL1;    
     RB1PPS = 0x13;   //RB1->MSSP1:SCL1;    
+    RB0PPS = 0x0F;   //RB0->EUSART1:TX1;    
     RB2PPS = 0x14;   //RB2->MSSP1:SDA1;    
     RC4PPS = 0x25;   //RC4->EUSART2:TX2;    
-    RB4PPS = 0x0F;   //RB4->EUSART1:TX1;    
     RX2DTPPS = 0x15;   //RC5->EUSART2:RX2;    
     SSP1DATPPS = 0x0A;   //RB2->MSSP1:SDA1;    
-    RX1DTPPS = 0x0D;   //RB5->EUSART1:RX1;    
+    RX1DTPPS = 0x0B;   //RB3->EUSART1:RX1;    
 }
   
 void PIN_MANAGER_IOC(void)

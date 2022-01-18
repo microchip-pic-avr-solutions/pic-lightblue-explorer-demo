@@ -126,16 +126,16 @@ int main(void)
         {
             while(RN487X_DataReady())
             {
-//                value =RN487X_Read();
-//                lightBlueSerial[serialIndex]=value;
-//                uart[UART_CDC].Write(value);
-//                serialIndex++;
+                value =RN487X_Read();
+                lightBlueSerial[serialIndex]=value;
+                uart[UART_CDC].Write(value);
+                serialIndex++;
             }
             while (uart[UART_CDC].DataReady())
             {
                 value=uart[UART_CDC].Read();
-                uart[UART_CDC].Write(value);
-//                RN487X.Write(value);
+//                uart[UART_CDC].Write(value);
+                RN487X.Write(value);
             }
         }
     }
