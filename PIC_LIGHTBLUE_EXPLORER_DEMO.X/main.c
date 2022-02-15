@@ -83,59 +83,54 @@ int main(void)
     RN487X_Init();
     LIGHTBLUE_Initialize();
 
-    while (1)
+   while (1)
     {
-//        if (RN487X_IsConnected() == true)
-//        {
-//            if (TIMER_FLAG_SET() == true)
-//            {
-//                RESET_TIMER_INTERRUPT_FLAG;
-//
-//                LIGHTBLUE_TemperatureSensor();
-//                LIGHTBLUE_AccelSensor();
-//                LIGHTBLUE_PushButton();
-//                LIGHTBLUE_LedState();
-//                LIGHTBLUE_SendProtocolVersion();
-//            }
-//            else
-//            {
-//                while (RN487X_DataReady())
-//                {
-//                    LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
-//                }
-//                while (uart[UART_CDC].DataReady())
-//                {
-//                    lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
-//                    if ((lightBlueSerial[serialIndex] == '\r')
-//                        || (lightBlueSerial[serialIndex] == '\n')
-//                        || (serialIndex == (sizeof(lightBlueSerial) - 1)))
-//                    {
-//                        lightBlueSerial[serialIndex] = '\0';
-//                        LIGHTBLUE_SendSerialData(lightBlueSerial);
-//                        serialIndex = 0;
-//                    }
-//                    else
-//                    {
-//                        serialIndex++;
-//                    }
-//                }
-//                
-//            }
-//        }
-//        else
+        if (RN487X_IsConnected() == true)
+        {
+            if (TIMER_FLAG_SET() == true)
+            {
+                RESET_TIMER_INTERRUPT_FLAG;
+
+                LIGHTBLUE_TemperatureSensor();
+                LIGHTBLUE_AccelSensor();
+                LIGHTBLUE_PushButton();
+                LIGHTBLUE_LedState();
+                LIGHTBLUE_SendProtocolVersion();
+            }
+            else
+            {
+                while (RN487X_DataReady())
+                {
+                    LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
+                }
+                while (uart[UART_CDC].DataReady())
+                {
+                    lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
+                    if ((lightBlueSerial[serialIndex] == '\r')
+                        || (lightBlueSerial[serialIndex] == '\n')
+                        || (serialIndex == (sizeof(lightBlueSerial) - 1)))
+                    {
+                        lightBlueSerial[serialIndex] = '\0';
+                        LIGHTBLUE_SendSerialData(lightBlueSerial);
+                        serialIndex = 0;
+                    }
+                    else
+                    {
+                        serialIndex++;
+                    }
+                }
+                
+            }
+        }
+        else
         {
             while(RN487X_DataReady())
             {
-                value =RN487X_Read();
-                lightBlueSerial[serialIndex]=value;
-                uart[UART_CDC].Write(value);
-                serialIndex++;
+                uart[UART_CDC].Write(RN487X_Read());
             }
             while (uart[UART_CDC].DataReady())
             {
-                value=uart[UART_CDC].Read();
-//                uart[UART_CDC].Write(value);
-                RN487X.Write(value);
+                RN487X.Write(uart[UART_CDC].Read());
             }
         }
     }
