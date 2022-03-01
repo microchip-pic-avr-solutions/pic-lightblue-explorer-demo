@@ -27,6 +27,8 @@ static char statusBuffer[MAX_BUFFER_SIZE]; /**< Status Buffer instance passed to
 static char lightBlueSerial[MAX_BUFFER_SIZE]; /**< Message Buffer used for CDC Serial communication when connected. Terminated by \r, \n, MAX character Passes messages to BLE for transmisison. */
 static uint8_t serialIndex; /**< Local index value for serial communication buffer. */
 uint8_t value;
+bool init = false;
+uint8_t *message;
 
 /*
                          Main application
@@ -44,20 +46,31 @@ int main(void) {
 
     RN487X_Init();
     LIGHTBLUE_Initialize();
-    
-    serialIndex=0;
-    
-    
+
+    serialIndex = 0;
+
+
     while (1) {
-        //        if (RN487X_IsConnected() == true) {
+        if (RN487X_IsConnected() == true) {
+            if (init == false) {
+                init = true;
+                message = "Hello";
+                while (*message) {
+                    value= *message++;
+                    RN487X.Write(value);
+                }
+                value='\n';
+                RN487X.Write(value);
+            }
+        }
         if (TIMER_FLAG_SET() == true) {
             RESET_TIMER_INTERRUPT_FLAG;
-
-            //                LIGHTBLUE_TemperatureSensor();
-            //                LIGHTBLUE_AccelSensor();
-            //                LIGHTBLUE_PushButton();
-            //                LIGHTBLUE_LedState();
-            //                LIGHTBLUE_SendProtocolVersion();
+            
+                                        LIGHTBLUE_TemperatureSensor();
+                                        LIGHTBLUE_AccelSensor();
+                                        LIGHTBLUE_PushButton();
+                                        LIGHTBLUE_LedState();
+                                        LIGHTBLUE_SendProtocolVersion();
         }
         //            else
         //            {
@@ -86,9 +99,9 @@ int main(void) {
         //        } else {
         while (RN487X_DataReady()) {
             value = RN487X_Read();
-            lightBlueSerial[serialIndex++]=value;
-//            uart[UART_CDC].Write(value);
-            RN487X.Write(value);
+            lightBlueSerial[serialIndex++] = value;
+            uart[UART_CDC].Write(value);
+            //            RN487X.Write(value);
         }
         while (uart[UART_CDC].DataReady()) {
             value = uart[UART_CDC].Read();

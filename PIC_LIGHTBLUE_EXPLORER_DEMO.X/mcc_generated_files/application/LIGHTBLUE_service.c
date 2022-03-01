@@ -22,7 +22,7 @@
     CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS
     SOFTWARE.
-*/
+ */
 
 #include <stdint.h>
 #include <string.h>
@@ -44,7 +44,7 @@
  \param[in] x - 8bit unsigned char \n
  \return MASKED (4) bit value \n
  \retval MASKED lower Nibble Character \n
-*/
+ */
 #define Hex(x)                      (_hex[(x) & 0xF])
 /**
 \ingroup LIGHTBLUE
@@ -53,7 +53,7 @@
  \param[in] x - 8bit unsigned char \n
  \return 8bit decimal value converted from 'char' ANCI Byte \n
  \retval decimal value of ancii character \n
-*/
+ */
 #define Ascii2Decimal(c)            (((c) <= '9') ? (c) - '0' : (c & 0x5f) - 'A' + 10)
 /**
 \ingroup LIGHTBLUE
@@ -62,7 +62,7 @@
  * to be driven in the direction which turns the LED ON.
  * This LED is ACTIVE_LOW \n
  \return void \n
-*/
+ */
 #define DataLedOn()                 DATA_LED_SetLow()
 /**
 \ingroup LIGHTBLUE
@@ -71,7 +71,7 @@
  * to be driven in the direction which turns the LED OFF.
  * This LED is ACTIVE_LOW \n
  \return void \n
-*/
+ */
 #define DataLedOff()                DATA_LED_SetHigh()
 /**
 \ingroup LIGHTBLUE
@@ -79,7 +79,7 @@
  * Macro used to add the character used as the Starting BYTE used for framing the
  LightBlue Application Packets. \n
  \return void \n
-*/
+ */
 #define START_BYTE                  ('[')
 /**
 \ingroup LIGHTBLUE
@@ -87,7 +87,7 @@
  * Macro used to add the character used as the Terminating BYTE used for framing the
  LightBlue Application Packets. \n
  \return void \n
-*/
+ */
 #define TERMINATION_BYTE            (']')
 /**
 \ingroup LIGHTBLUE
@@ -96,7 +96,7 @@
  * On the PIC this is through the GPIO bitMap exchanged with the RN487X module.
  * On the AVR this is connected to a pin through the MCU device. \n
  \return void \n
-*/
+ */
 #define ERROR_LED_VALUE             (bitMap.ioStateBitMap.p2_2_state)
 /**
 \ingroup LIGHTBLUE
@@ -105,7 +105,7 @@
  * RN487X module communication. This delay is required for processing of some
  * requested actions. \n
  \return void \n
-*/
+ */
 #define CMD_MODE_DELAY_TIME         (20)
 /**
 \ingroup LIGHTBLUE
@@ -114,7 +114,7 @@
  * bias configuration, determined on the ACTIVE_STATE tied High/Low. 
  * On this board, the LED is ACTIVE LOW, so HIGH will be the OFF_STATE \n
  \return void \n
-*/
+ */
 #define LED_OFF_STATE               (0x01)
 /**
 \ingroup LIGHTBLUE
@@ -123,7 +123,7 @@
  * bias configuration, determined on the ACTIVE_STATE pull up/down.
  * On this board, the BUTTON (switch) is ACTIVE LOW, so HIGH will be the NOT PRESSED \n
  \return void \n
-*/
+ */
 #define NOT_PRESSED_STATE           (0x01)
 /**
  * \ingroup LIGHTBLUE
@@ -140,7 +140,7 @@
  * Macro used to MASK the value of the LED.
  * This is a MASK used during processing of the Light related packets. \n
  \return void \n
-*/
+ */
 #define LIGHTBLUE_OFF               (0x00)
 /**
 \ingroup LIGHTBLUE
@@ -148,7 +148,7 @@
  * Macro used to MASK the value of the DATA LED.
  * This is a MASK used during processing of the Light related packets. \n
  \return void \n
-*/
+ */
 #define DATA_LED_IDENTIFIER         (0x00)
 /**
 \ingroup LIGHTBLUE
@@ -156,7 +156,7 @@
  * Macro used to MASK the value of the ERROR LED. 
  * This is a MASK used during processing of the Light related packets. \n
  \return void \n
-*/
+ */
 #define ERROR_LED_IDENTIFIER        (0x10)
 /**
 \ingroup LIGHTBLUE
@@ -164,51 +164,51 @@
  * Macro used to MASK the value of the LEDs as they are being toggle. 
  * This is a MASK used during processing of the Light related packets. \n
  \return void \n
-*/
+ */
 #define NIBBLE_MASK                 (0x01)
+
 /**
  \ingroup LIGHTBLUE
-*! \struct PROTOCOL_PACKET_TYPES_t
-* A struct used to store possible Light Blue Protocol Packet ID types.
+ *! \struct PROTOCOL_PACKET_TYPES_t
+ * A struct used to store possible Light Blue Protocol Packet ID types.
 Specific processing of task coorilated to packet type handled in \ref 
 LIGHTBLUE_PerformAction private function. Use of types is handled in packet
 format functions used to specific application transmission features. 
-*/
-typedef enum
-{
-    PROTOCOL_VERSION_ID    = 'V',
-    LED_STATE_ID           = 'L',
-    BUTTON_STATE_ID        = 'P',
-    TEMPERATURE_DATA_ID    = 'T',
-    ACCEL_DATA_ID          = 'X',
-    SERIAL_DATA_ID         = 'S',
-    ERROR_ID               = 'R',
-    UI_CONFIG_DATA_ID      = 'U'
-}PROTOCOL_PACKET_TYPES_t;
+ */
+typedef enum {
+    PROTOCOL_VERSION_ID = 'V',
+    LED_STATE_ID = 'L',
+    BUTTON_STATE_ID = 'P',
+    TEMPERATURE_DATA_ID = 'T',
+    ACCEL_DATA_ID = 'X',
+    SERIAL_DATA_ID = 'S',
+    ERROR_ID = 'R',
+    UI_CONFIG_DATA_ID = 'U'
+} PROTOCOL_PACKET_TYPES_t;
+
 /**
  \ingroup LIGHTBLUE
-*! \struct PACKET_PARSER_STATE_t
-* A struct used to manage the Packet Processor State upon reception of a framed
+ *! \struct PACKET_PARSER_STATE_t
+ * A struct used to manage the Packet Processor State upon reception of a framed
 message from the RN487X device. These states are used to extract packet data in
 the \ref LIGHTBLUE_PerformAction task processing function. 
-*/
-typedef enum
-{
-    IDLE                    = 0,
-    SEQUENCE_NUMBER         = 1,
-    PACKET_ID               = 2,
-    PAYLOAD_SIZE_0          = 3,
-    PAYLOAD_SIZE_1          = 4,
-    PAYLOAD_0               = 5,
-    PAYLOAD_1               = 6        
-           
-}PACKET_PARSER_STATE_t;
+ */
+typedef enum {
+    IDLE = 0,
+    SEQUENCE_NUMBER = 1,
+    PACKET_ID = 2,
+    PAYLOAD_SIZE_0 = 3,
+    PAYLOAD_SIZE_1 = 4,
+    PAYLOAD_0 = 5,
+    PAYLOAD_1 = 6
 
-const char * const protocol_version_number = "1.1.0";   /**< Local Const Variable used to represent Light Blue Protocol version used by application */
-static char _hex[] = "0123456789ABCDEF";                /**< Local Variable used for Masking a Hex value result */
-static uint8_t sequenceNumber = 0;                      /**< Local Variable used to keep track of the number of TRANSMIT packets sent from device*/
-static volatile rn487x_gpio_bitmap_t bitMap;            /**< Local Variable used managing stored state of GPIO pin controlled by RN487X */
+} PACKET_PARSER_STATE_t;
 
+const char * const protocol_version_number = "1.1.0"; /**< Local Const Variable used to represent Light Blue Protocol version used by application */
+static char _hex[] = "0123456789ABCDEF"; /**< Local Variable used for Masking a Hex value result */
+static uint8_t sequenceNumber = 0; /**< Local Variable used to keep track of the number of TRANSMIT packets sent from device*/
+static volatile rn487x_gpio_bitmap_t bitMap; /**< Local Variable used managing stored state of GPIO pin controlled by RN487X */
+uint8_t value;
 /**
  \ingroup LIGHTBLUE
  \brief  Private function to send a properly formated Light Blue Application Packet  \n
@@ -282,7 +282,7 @@ This function is used to update the state of the ERROR LED which is controlled v
  * RN487X through the GPIO command on the PIC platform. On the AVR board this is MCU (LAT) controlled.
  \return void \n
  */
-static void LIGHTBLUE_UpdateErrorLed(void); 
+static void LIGHTBLUE_UpdateErrorLed(void);
 /**
  \ingroup LIGHTBLUE
  \brief  Private function used process requested actions from the Light Blue application \n
@@ -298,114 +298,103 @@ Supported Type ID Options:
  */
 static void LIGHTBLUE_PerformAction(char id, uint8_t data);
 
-void LIGHTBLUE_Initialize(void)
-{
+void LIGHTBLUE_Initialize(void) {
     bitMap.ioBitMap.gpioBitMap = 0x01;
-    bitMap.ioStateBitMap.gpioStateBitMap = 0x01; 
+    bitMap.ioStateBitMap.gpioStateBitMap = 0x01;
 }
 
-void LIGHTBLUE_TemperatureSensor(void)
-{
+void LIGHTBLUE_TemperatureSensor(void) {
     char payload[5];
     int16_t temperature;
-    
+
     *payload = '\0';
     MCP9844_GetTemperatureValue(&temperature);
-    
+
     LIGHTBLUE_SplitWord(payload, temperature);
-    
+
     LIGHTBLUE_SendPacket(TEMPERATURE_DATA_ID, payload);
 }
 
-void LIGHTBLUE_AccelSensor(void)
-{
+void LIGHTBLUE_AccelSensor(void) {
     char payload[13];
     BMA253_ACCEL_DATA_t accelData;
-    
+
     *payload = '\0';
     BMA253_GetAccelDataXYZ(&accelData);
     // Masking to ensure top nibble is always 0 as light blue expects
     // Exception may occur when highest byte is not 0
-    LIGHTBLUE_SplitWord(payload, (accelData.x & 0x0FFF)); 
+    LIGHTBLUE_SplitWord(payload, (accelData.x & 0x0FFF));
     LIGHTBLUE_SplitWord(payload, (accelData.y & 0x0FFF));
     LIGHTBLUE_SplitWord(payload, (accelData.z & 0x0FFF));
-    
+
     LIGHTBLUE_SendPacket(ACCEL_DATA_ID, payload);
 }
 
-void LIGHTBLUE_PushButton(void)
-{
+void LIGHTBLUE_PushButton(void) {
     char payload[3];
     uint8_t button = LIGHTBLUE_GetButtonValue();
-    
+
     *payload = '\0';
     LIGHTBLUE_SplitByte(payload, button);
-    
+
     LIGHTBLUE_SendPacket(BUTTON_STATE_ID, payload);
 }
 
-void LIGHTBLUE_LedState(void)
-{
+void LIGHTBLUE_LedState(void) {
     char payload[3];
     uint8_t led;
-    
+
     led = DATA_LED_IDENTIFIER + LIGHTBLUE_GetDataLedValue();
-    
+
     *payload = '\0';
     LIGHTBLUE_SplitByte(payload, led);
-    
+
     LIGHTBLUE_SendPacket(LED_STATE_ID, payload);
-    
+
     led = ERROR_LED_IDENTIFIER + LIGHTBLUE_GetErrorLedValue();
     *payload = '\0';
     LIGHTBLUE_SplitByte(payload, led);
-    
-    LIGHTBLUE_SendPacket(LED_STATE_ID, payload); 
+
+    LIGHTBLUE_SendPacket(LED_STATE_ID, payload);
 }
 
-void LIGHTBLUE_SendProtocolVersion(void)
-{
+void LIGHTBLUE_SendProtocolVersion(void) {
     char payload[19];
     uint8_t value;
     uint8_t dataIndex;
-    
+
     *payload = '\0';
-    
-    for(dataIndex = 0; dataIndex < strlen(protocol_version_number); dataIndex++)
-    {
+
+    for (dataIndex = 0; dataIndex < strlen(protocol_version_number); dataIndex++) {
         value = protocol_version_number[dataIndex];
         LIGHTBLUE_SplitByte(payload, value);
     }
-    
+
     LIGHTBLUE_SendPacket(PROTOCOL_VERSION_ID, payload);
 }
 
-void LIGHTBLUE_SendSerialData(char* serialData)
-{
+void LIGHTBLUE_SendSerialData(char* serialData) {
     uint8_t length = strlen(serialData) * 2;
-    
+
     RN487X.Write(START_BYTE);
     RN487X.Write(Hex(sequenceNumber++));
     RN487X.Write(SERIAL_DATA_ID);
     RN487X.Write(Hex(length >> 4));
     RN487X.Write(Hex(length));
-    while(*serialData)
-    {
+    while (*serialData) {
         RN487X.Write(Hex(*serialData >> 4));
         RN487X.Write(Hex(*serialData++));
     }
     RN487X.Write(TERMINATION_BYTE);
 }
 
-void LIGHTBLUE_ParseIncomingPacket(char receivedByte)
-{
+void LIGHTBLUE_ParseIncomingPacket(char receivedByte) {
     static PACKET_PARSER_STATE_t parserState = IDLE;
     static uint8_t length = 0;
     static uint16_t data = 0;
     static char packetID = '\0';
 
-    switch(parserState) 
-    {
+    switch (parserState) {
         case SEQUENCE_NUMBER:
             //ignore sequence
             parserState = PACKET_ID;
@@ -425,12 +414,9 @@ void LIGHTBLUE_ParseIncomingPacket(char receivedByte)
         case PAYLOAD_0:
             data = Ascii2Decimal(receivedByte);
             length--;
-            if (length == 0)
-            {
+            if (length == 0) {
                 parserState = IDLE;
-            }
-            else
-            {
+            } else {
                 parserState = PAYLOAD_1;
             }
             break;
@@ -438,103 +424,84 @@ void LIGHTBLUE_ParseIncomingPacket(char receivedByte)
             data = (data << 4) + Ascii2Decimal(receivedByte);
             LIGHTBLUE_PerformAction(packetID, data);
             length--;
-            if (length == 0)
-            {
+            if (length == 0) {
                 parserState = IDLE;
-            }
-            else
-            {
+            } else {
                 parserState = PAYLOAD_0;
             }
             break;
         case IDLE:
         default:
-            if (receivedByte == START_BYTE)
-            {
+            if (receivedByte == START_BYTE) {
                 parserState = SEQUENCE_NUMBER;
             }
             break;
     }
 }
 
-static void LIGHTBLUE_SendPacket(char packetID, char* payload)
-{
+static void LIGHTBLUE_SendPacket(char packetID, char* payload) {
     RN487X.Write(START_BYTE);
     RN487X.Write(Hex(sequenceNumber++));
     RN487X.Write(packetID);
     RN487X.Write(Hex(strlen(payload) >> 4));
     RN487X.Write(Hex(strlen(payload)));
-    while (*payload)
-    {
-        RN487X.Write((*(uint8_t *)payload++));
+    while (*payload) {
+        RN487X.Write((*(uint8_t *) payload++));
     }
     RN487X.Write(TERMINATION_BYTE);
+    value = '\n';
+    RN487X.Write(value);
 }
 
-static void LIGHTBLUE_SplitWord(char* payload, int16_t value)
-{
+static void LIGHTBLUE_SplitWord(char* payload, int16_t value) {
     LIGHTBLUE_SplitByte(payload, value);
     LIGHTBLUE_SplitByte(payload, value >> 8);
 }
 
-static void LIGHTBLUE_SplitByte(char* payload, int8_t value)
-{
+static void LIGHTBLUE_SplitByte(char* payload, int8_t value) {
     payload += strlen(payload);
     *payload++ = Hex(value >> 4);
     *payload++ = Hex(value);
     *payload = '\0';
 }
 
-static uint8_t LIGHTBLUE_GetButtonValue(void)
-{
+static uint8_t LIGHTBLUE_GetButtonValue(void) {
     return NOT_PRESSED_STATE - PushButtonGetValue(); // This is forcing proper data for LightBlue
 }
 
-static uint8_t LIGHTBLUE_GetDataLedValue(void)
-{
+static uint8_t LIGHTBLUE_GetDataLedValue(void) {
     return LED_OFF_STATE - DATA_LED_GetValue(); // This is forcing proper data for LightBlue
 }
 
-static uint8_t LIGHTBLUE_GetErrorLedValue(void)
-{
+static uint8_t LIGHTBLUE_GetErrorLedValue(void) {
     return LED_OFF_STATE - ERROR_LED_VALUE;
 }
 
-static void LIGHTBLUE_SetErrorLedValue(bool value)
-{
+static void LIGHTBLUE_SetErrorLedValue(bool value) {
     ERROR_LED_VALUE = LED_OFF_STATE - value;
     LIGHTBLUE_UpdateErrorLed();
 }
 
-static void LIGHTBLUE_UpdateErrorLed(void)
-{
+static void LIGHTBLUE_UpdateErrorLed(void) {
     RN487X_EnterCmdMode();
     RN487X.DelayMs(CMD_MODE_DELAY_TIME);
     RN487X_SetOutputs(bitMap);
     RN487X_EnterDataMode();
 }
 
-static void LIGHTBLUE_PerformAction(char id, uint8_t data)
-{
+static void LIGHTBLUE_PerformAction(char id, uint8_t data) {
     uint8_t led;
-    
-    switch(id)
-    {
+
+    switch (id) {
         case LED_STATE_ID:
             led = (data >> 4) & NIBBLE_MASK;
-            if(led == DATA_LED_IDENTIFIER)
-            {
-                if((data & NIBBLE_MASK) == LIGHTBLUE_OFF)
-                {
+            if (led == DATA_LED_IDENTIFIER) {
+                if ((data & NIBBLE_MASK) == LIGHTBLUE_OFF) {
                     DataLedOff();
-                }
-                else
-                {
+                } else {
                     DataLedOn();
                 }
-            }
-            else
-            {
+            } else {
                 LIGHTBLUE_SetErrorLedValue(data & NIBBLE_MASK);
             }
             break;
