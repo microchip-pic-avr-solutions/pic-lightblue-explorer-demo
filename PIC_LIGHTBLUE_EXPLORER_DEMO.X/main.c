@@ -1,42 +1,4 @@
-/**
-  Generated Main Source File
-
-  Company:
-    Microchip Technology Inc.
-
-  File Name:
-    main.c
-
-  Summary:
-    This is the main file generated for use with PIC-Explorer
-
-  Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI.
-*/
-
-/*
-    (c) 2018 Microchip Technology Inc. and its subsidiaries. 
-    
-    Subject to your compliance with these terms, you may use Microchip software and any 
-    derivatives exclusively with Microchip products. It is your responsibility to comply with third party 
-    license terms applicable to your use of third party software (including open source software) that 
-    may accompany Microchip software.
-    
-    THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES, WHETHER 
-    EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE, INCLUDING ANY 
-    IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY, AND FITNESS 
-    FOR A PARTICULAR PURPOSE.
-    
-    IN NO EVENT WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND 
-    WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP 
-    HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE FORESEEABLE. TO 
-    THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL 
-    CLAIMS IN ANY WAY RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT 
-    OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
-    SOFTWARE.
-*/
-
+// Main File
 #include "mcc_generated_files/mcc.h"
 #include "mcc_generated_files/application/LIGHTBLUE_service.h"
 #include "mcc_generated_files/rn487x/rn487x_interface.h"
@@ -61,18 +23,20 @@
  */
 #define MAX_BUFFER_SIZE                 (80)
 
-static char statusBuffer[MAX_BUFFER_SIZE];      /**< Status Buffer instance passed to RN487X drive used for Asynchronous Message Handling (see *asyncBuffer in rn487x.c) */
-static char lightBlueSerial[MAX_BUFFER_SIZE];   /**< Message Buffer used for CDC Serial communication when connected. Terminated by \r, \n, MAX character Passes messages to BLE for transmisison. */
-static uint8_t serialIndex;                     /**< Local index value for serial communication buffer. */
+static char statusBuffer[MAX_BUFFER_SIZE]; /**< Status Buffer instance passed to RN487X drive used for Asynchronous Message Handling (see *asyncBuffer in rn487x.c) */
+static char lightBlueSerial[MAX_BUFFER_SIZE]; /**< Message Buffer used for CDC Serial communication when connected. Terminated by \r, \n, MAX character Passes messages to BLE for transmisison. */
+static uint8_t serialIndex; /**< Local index value for serial communication buffer. */
+uint8_t value;
+bool init = false;
+uint8_t *message;
 
 /*
                          Main application
  */
-int main(void)
-{
+int main(void) {
     // initialize the device
     SYSTEM_Initialize();
-    RN487X_SetAsyncMessageHandler(statusBuffer, sizeof(statusBuffer));
+    RN487X_SetAsyncMessageHandler(statusBuffer, sizeof (statusBuffer));
 
     // Enable the Global Interrupts
     INTERRUPT_GlobalInterruptEnable();
@@ -83,59 +47,67 @@ int main(void)
     RN487X_Init();
     LIGHTBLUE_Initialize();
 
-    while (1)
-    {
-        if (RN487X_IsConnected() == true)
-        {
-            if (TIMER_FLAG_SET() == true)
-            {
-                RESET_TIMER_INTERRUPT_FLAG;
+    serialIndex = 0;
 
-                LIGHTBLUE_TemperatureSensor();
-                LIGHTBLUE_AccelSensor();
-                LIGHTBLUE_PushButton();
-                LIGHTBLUE_LedState();
-                LIGHTBLUE_SendProtocolVersion();
-            }
-            else
-            {
-                while (RN487X_DataReady())
-                {
-                    LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
+
+    while (1) {
+        if (RN487X_IsConnected() == true) {
+            if (init == false) {
+                init = true;
+                message = "Hello";
+                while (*message) {
+                    value= *message++;
+                    RN487X.Write(value);
                 }
-                while (uart[UART_CDC].DataReady())
-                {
-                    lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
-                    if ((lightBlueSerial[serialIndex] == '\r')
-                        || (lightBlueSerial[serialIndex] == '\n')
-                        || (serialIndex == (sizeof(lightBlueSerial) - 1)))
-                    {
-                        lightBlueSerial[serialIndex] = '\0';
-                        LIGHTBLUE_SendSerialData(lightBlueSerial);
-                        serialIndex = 0;
-                    }
-                    else
-                    {
-                        serialIndex++;
-                    }
-                }
-                
+                value='\n';
+                RN487X.Write(value);
             }
         }
-        else
-        {
-            while(RN487X_DataReady())
-            {
-                uart[UART_CDC].Write(RN487X_Read());
-            }
-            while (uart[UART_CDC].DataReady())
-            {
-                RN487X.Write(uart[UART_CDC].Read());
-            }
+        if (TIMER_FLAG_SET() == true) {
+            RESET_TIMER_INTERRUPT_FLAG;
+            
+                                        LIGHTBLUE_TemperatureSensor();
+                                        LIGHTBLUE_AccelSensor();
+                                        LIGHTBLUE_PushButton();
+                                        LIGHTBLUE_LedState();
+                                        LIGHTBLUE_SendProtocolVersion();
+        }
+        //            else
+        //            {
+        //                while (RN487X_DataReady())
+        //                {
+        //                    LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
+        //                }
+        //                while (uart[UART_CDC].DataReady())
+        //                {
+        //                    lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
+        //                    if ((lightBlueSerial[serialIndex] == '\r')
+        //                        || (lightBlueSerial[serialIndex] == '\n')
+        //                        || (serialIndex == (sizeof(lightBlueSerial) - 1)))
+        //                    {
+        //                        lightBlueSerial[serialIndex] = '\0';
+        //                        LIGHTBLUE_SendSerialData(lightBlueSerial);
+        //                        serialIndex = 0;
+        //                    }
+        //                    else
+        //                    {
+        //                        serialIndex++;
+        //                    }
+        //                }
+        //                
+        //            }
+        //        } else {
+        while (RN487X_DataReady()) {
+            value = RN487X_Read();
+            lightBlueSerial[serialIndex++] = value;
+            uart[UART_CDC].Write(value);
+            //            RN487X.Write(value);
+        }
+        while (uart[UART_CDC].DataReady()) {
+            value = uart[UART_CDC].Read();
+            RN487X.Write(value);
         }
     }
+    //    }
     return 0;
 }
-/**
- End of File
-*/
